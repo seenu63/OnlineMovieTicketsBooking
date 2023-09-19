@@ -1,0 +1,102 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>Home</title>
+<link rel="stylesheet" href="#" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" href="#" th:href="@{/css/all.css}" />
+<link rel="stylesheet" href="#" th:href="@{/css/index.css}" />
+
+
+
+<style>
+.card{
+position:absolute;
+top:40%;
+left:50%;
+transform:translate(-50%,-40%);
+
+}
+.col-3{
+	background-color: springgreen;
+}
+.card-title{
+	background-color: springgreen;
+}
+
+</style>
+
+
+</head>
+<body>
+
+	<div class="container base">
+		<div class="row base-row">
+			<div class="col-3 menu">
+			<div class="logo mb-5 text-center text-light bg-dark pt-1 pb-1">
+			<h4>MOON CINEMA</h4>
+			</div>
+				<ul class="list">
+					<li><a th:classappend="${menu == 'home'} ? 'text-dark' : ' '" th:href="@{/home}"><i class="fas fa-home"></i>&nbsp;&nbsp;Home</a></li>
+					<li><a th:href="@{/setting}"><i class="fas fa-cogs"></i>&nbsp;&nbsp;Setting</a></li>
+					<li th:if="${session.user.bid==1}"><a
+						th:href="@{/all-customers-records}"><i class="fas fa-users"></i>&nbsp;&nbsp;All
+						Users</a></li>
+					<li><a th:href="@{/orders}"><i
+							class="fas fa-history"></i>&nbsp;&nbsp;Orders</a></li>
+					
+					<li><a th:href="@{/logout}"><i class="fas fa-sign-out-alt"></i>&nbsp;&nbsp;Logout</a></li>
+				</ul>
+				
+			</div>
+			
+		
+		
+<div class="card col-sm-4">
+<div  class="card-body">
+
+<div class="card-title  text-light text-center"><h1>Add  Movies</h1></div>
+
+<form action="saveProduct"  method="post">
+<div class="form-group">
+
+<label for="movieName">Enter Movie name</label>
+ <input type="text" name="movieName" placeholder="enter movie name[soon,present]" class="form-control">
+</div>
+
+<div class="form-group">
+
+<label for="image">Enter image</label>
+ <input type="text" name="image" placeholder="enter the movie  image" class="form-control">
+</div>
+
+<div class="form-group">
+
+<label for="movieDetails">Enter movie details</label>
+ <input type="text" name="movieDetails" placeholder="enter the movie details" class="form-control">
+</div>
+
+
+<div class="form-group">
+
+<label for="screenName">Enter screen[F,T-2D,S-3D]</label>
+ <input type="text" name="screenName" placeholder="enter screen name" class="form-control">
+</div>
+
+<div class="form-group">
+<button type="submit" class="btn btn-primary text-light"> Add Movie </button>
+<button type="reset" class="btn btn-dark text-light"> <i class="bi bi-arrow-counterclockwise"></i> Clear   </button>
+</div>
+</form>
+<div class="card-footer">
+<a href="view">View All Movies</a>
+</div>
+		
+		
+		
+		
+		
+		</div></div>
+
+</body>
+</html>

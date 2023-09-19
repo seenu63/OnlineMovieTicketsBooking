@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8" />
+<title>view page</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/font/bootstrap-icons.css">
+
+
+
+<link rel="stylesheet" href="#" th:href="@{/css/bootstrap.css}" />
+<link rel="stylesheet" href="#" th:href="@{/css/all.css}" />
+<link rel="stylesheet" href="#" th:href="@{/css/index.css}" />
+<style>
+
+
+
+</style>
+
+</head>
+
+
+
+
+<body> <br>
+ &nbsp&nbsp<button class="btn btn-primary"><a href="/AdminHome"><span class="lnk text-white">Go to Home</span></a></button>
+
+<br>
+<table class="table ">
+<br>
+			<thead class="thead-dark">
+		    <tr>
+								
+										<th scope="col">MovieId</th>
+										<th scope="col">MovieName</th>
+										<th scope="col">Image</th>
+										<th scope="col">MovieDetails</th>
+										<th scope="col">screenName</th>
+										<th scope="col">Delete</th>
+										
+									</tr>
+								</thead>
+								<tbody>
+									<tr th:each="hist: ${flims}">
+									   
+										<td th:text="${hist.movieId}"></td>
+										<td th:text="${hist.movieName}"></td>
+										<td th:text="${hist.image}"></td>
+										<td th:text="${hist.movieDetails}"></td>
+										<td th:text="${hist.screenName}"></td>
+										<td>
+									<a th:href="@{/deleteProduct(movieId=${hist.movieId})}">Delete	<i class="bi bi-x-circle-fill"></i></a>
+								</td>
+								</tbody>
+							</table>
+			
+
+
+
+	
+</body>
+</html>
